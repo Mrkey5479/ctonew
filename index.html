@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>欢乐斗地主 | Happy Dou Dizhu</title>
+    <meta
+      name="description"
+      content="A simple single-player Happy Dou Dizhu game with basic AI, built with HTML, CSS, and JavaScript."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="tabletop">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">单人模式 · Single Player Mode</p>
+          <h1>欢乐斗地主</h1>
+          <p class="subtitle">Challenge two cheerful AI farmers in this streamlined browser-friendly take on Happy Dou Dizhu.</p>
+        </div>
+      </header>
+
+      <section class="status-panel">
+        <div class="status-block" aria-live="polite" id="game-status">Shuffling the deck...</div>
+        <div class="status-block" aria-live="polite" id="turn-indicator">Preparing players...</div>
+      </section>
+
+      <section class="board">
+        <article class="opponent" data-player="left">
+          <div class="opponent-header">
+            <h2 class="opponent-name" id="left-name">Left AI</h2>
+            <span class="role-pill" id="left-role">Farmer</span>
+          </div>
+          <p class="card-count" id="left-count">0 cards</p>
+          <div class="opponent-cards" id="left-cards"></div>
+        </article>
+
+        <article class="center-stack">
+          <div class="current-play" id="current-play">
+            <p class="placeholder">No cards on the table yet.</p>
+          </div>
+          <div class="play-history" id="play-history">
+            <p class="placeholder">Every move will appear here.</p>
+          </div>
+        </article>
+
+        <article class="opponent" data-player="right">
+          <div class="opponent-header">
+            <h2 class="opponent-name" id="right-name">Right AI</h2>
+            <span class="role-pill" id="right-role">Farmer</span>
+          </div>
+          <p class="card-count" id="right-count">0 cards</p>
+          <div class="opponent-cards" id="right-cards"></div>
+        </article>
+      </section>
+
+      <section class="player-panel" data-player="player">
+        <div class="player-info">
+          <div>
+            <p class="label">Your role</p>
+            <p class="value" id="player-role">Farmer</p>
+          </div>
+          <div>
+            <p class="label">Cards left</p>
+            <p class="value" id="player-card-count">0</p>
+          </div>
+        </div>
+
+        <div class="player-hand" id="player-hand" aria-label="Your hand" tabindex="0"></div>
+
+        <div class="helper-text">
+          Select singles, pairs, or triples to play. You must beat the current combo unless you are leading a new round.
+        </div>
+
+        <div class="player-actions">
+          <button type="button" class="cta" id="play-btn" disabled>Play Selected</button>
+          <button type="button" class="ghost" id="pass-btn" disabled>Pass</button>
+          <button type="button" class="ghost" id="restart-btn" data-restart>Restart Game</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js" defer></script>
+  </body>
+</html>

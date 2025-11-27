@@ -1,0 +1,20 @@
+# Node and dependency directories
+node_modules/
+bower_components/
+
+# Build outputs
+dist/
+build/
+*.log
+
+# Environment files
+.env
+.env.*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
